@@ -18,20 +18,18 @@ jobs:
     
     - uses: hyoo-ru/mam_build@master2
       with:
-        token: ${{ secrets.GH_PAT }}
         package: 'hyoo/template' #FIXME namespace of this package
         modules: 'demo' #FIXME which modules to build, remove line if only on module at the root
     
     #FIXME remove one of the following
     
     - uses: JS-DevTools/npm-publish@v1
-      if: ${{ github.ref == 'refs/heads/master' }}
+      if: github.ref == 'refs/heads/master'
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
         package: ./mol/template/demo/-/package.json #FIXME path to build module
         
-    - uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
+    - uses: hyoo-ru/gh-deploy@v4.4.1
       if: github.ref == 'refs/heads/master'
       with:
-        repo-token: ${{ secrets.GH_PAT }}
-        site-directory: 'hyoo/template/demo/-' #FIXME path to build app
+        folder: 'hyoo/template/demo/-' #FIXME path to build app
