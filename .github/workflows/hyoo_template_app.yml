@@ -1,6 +1,6 @@
 #FIXME change file name to actual app name
 #FIXME change to actual app name
-name: $hyoo_template_demo
+name: $hyoo_template_app
 
 on:
   workflow_dispatch:
@@ -19,7 +19,7 @@ jobs:
     - uses: hyoo-ru/mam_build@master2
       with:
         package: 'hyoo/template' #FIXME namespace of this package
-        modules: 'demo' #FIXME which modules to build, remove line if only on module at the root
+        modules: 'app' #FIXME which modules to build, remove line if only on module at the root
     
     #FIXME remove one of the following
     
@@ -27,9 +27,9 @@ jobs:
       if: github.ref == 'refs/heads/master'
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
-        package: ./mol/template/demo/-/package.json #FIXME path to build module
+        package: ./mol/template/app/-/package.json #FIXME path to build module
         
     - uses: hyoo-ru/gh-deploy@v4.4.1
       if: github.ref == 'refs/heads/master'
       with:
-        folder: 'hyoo/template/demo/-' #FIXME path to build app
+        folder: 'hyoo/template/app/-' #FIXME path to build app
