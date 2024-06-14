@@ -1,6 +1,6 @@
 # Template Repo
 
-Template repo to fast make new $hyoo apps.
+Template repo to start the new $hyoo apps quickly.
 
 ## After Make
 
